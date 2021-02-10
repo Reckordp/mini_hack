@@ -1,0 +1,2 @@
+gcc -g src/miniMruby.c -I include -o mini.o
+gcc -nostdlib -nostartfiles -static -o mini.exe `gcc --print-file-name=crt1.o` `gcc --print-file-name=crti.o` `gcc --print-file-name=crtbegin.o` mini.o `gcc --print-file-name=crtend.o` `gcc --print-file-name=crtn.o` -L lib -lmruby -lm -Wl,--start-group `gcc --print-file-name=libc.a` -lgcc -lgcc_eh -Wl,--end-group
