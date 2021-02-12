@@ -36,7 +36,7 @@ file 'lib/libmruby.a' do
 	sh 'curl -k' + 
 	' https://github.com/Reckordp/mruby/releases/download/V11/libmruby.a' + 
 	' -o laman_mruby'
-	laman = Nokogiti::HTML.parse(File.read('laman_mruby'))
+	laman = Nokogiri::HTML.parse(File.read('laman_mruby'))
 	link = laman.css('a').attribute('href').value
 	sh 'curl -k ' + link + ' -o lib/libmruby.a'
 end
