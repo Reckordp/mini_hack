@@ -1,6 +1,9 @@
 language: c
 
-os: linux
+os: 
+  linux
+  windows
+
 dist: bionic
 arch: amd64
 
@@ -9,7 +12,7 @@ script: rake
 deploy:
   provider: releases
   token: ${token}
-  file: mini
+  file: mini-$TRAVIS_OS_NAME
   skip_cleanup: true
   on:
     tags: true

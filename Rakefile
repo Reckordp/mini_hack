@@ -30,7 +30,7 @@ RUN_COMMAND = %q(./%s).freeze
 
 SRC_PROGRAM = %q(src/miniMruby.c).freeze
 OBJECT_SINGGAH = %q(mini.o).freeze
-PROGRAM_NAME = %q(mini).freeze
+PROGRAM_NAME = "mini-#{ENV['TRAVIS_OS_NAME']}".freeze
 
 file 'lib/libmruby.a' do 
 	sh 'curl -k' + 
