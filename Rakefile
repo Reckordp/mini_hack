@@ -38,7 +38,7 @@ file 'lib/libmruby.a' do
 	' -o laman_mruby'
 	laman = Nokogiri::HTML.parse(File.read('laman_mruby'))
 	link = laman.css('a').attribute('href').value
-	sh 'curl -k ' + link + ' -o lib/libmruby.a'
+	sh 'curl -k \'' + link + '\' -o lib/libmruby.a'
 end
 
 task default: 'lib/libmruby.a' do
