@@ -8,11 +8,11 @@ jobs:
     - os: windows
       arch: amd64
 
+
 before_install: 
-  - choco install mingw
-  - choco install msys2
-  - ridk.cmd exec pacman -S --noconfirm --needed base-devel mingw-w64-x86_64-toolchain
-  - ridk enable
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; choco install msys2; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; ridk.cmd exec pacman -S --noconfirm --needed base-devel mingw-w64-x86_64-toolchain; fi
+  - if [ "$TRAVIS_OS_NAME" == "windows" ]; ridk.cmd enable; fi
   - bundle install
 
 script: rake
