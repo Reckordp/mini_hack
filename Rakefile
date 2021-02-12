@@ -42,7 +42,6 @@ file 'lib/libmruby.a' do
 end
 
 task default: 'lib/libmruby.a' do
-	sh 'bundle install'
 	mruby_environment = [MRUBY_INCLUDE_PATH, MRUBY_LIB_PATH]
 	sh PERINTAH_GCC_OBJECT % [SRC_PROGRAM, mruby_environment[0], OBJECT_SINGGAH]
 	sh PERINTAH_GCC_LINKER % [PROGRAM_NAME, OBJECT_SINGGAH, mruby_environment[1]]

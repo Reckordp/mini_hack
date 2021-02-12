@@ -8,6 +8,7 @@ jobs:
     - os: windows
       arch: amd64
 
+before_install: bundle install
 script: rake
 
 deploy:
