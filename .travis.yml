@@ -1,11 +1,12 @@
 language: c
 
-os: 
-  linux
-  windows
-
-dist: bionic
-arch: amd64
+jobs:
+  include:
+    - os: linux
+      dist: bionic
+      arch: amd64
+    - os: windows
+      arch: amd64
 
 script: rake
 
