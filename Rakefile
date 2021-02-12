@@ -28,7 +28,7 @@ PERINTAH_GCC_LINKER = %q(gcc ).concat(PERINTAH_GCC_LINKER_A, ' ', PERINTAH_GCC_L
 REMOVE_COMMAND = %q(rm -rf %s).freeze
 RUN_COMMAND = %q(./%s).freeze
 
-SRC_PROGRAM = %q(miniMruby.c).freeze
+SRC_PROGRAM = %q(src/miniMruby.c).freeze
 OBJECT_SINGGAH = %q(mini.o).freeze
 PROGRAM_NAME = %q(mini).freeze
 
