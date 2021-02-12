@@ -1,9 +1,4 @@
-language: 
-  - c
-  - ruby
-
-rvm:
-  - 2.5
+language: c
 
 os: linux
 dist: bionic
