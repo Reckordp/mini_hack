@@ -1,0 +1,15 @@
+language: c
+
+os: linux
+dist: bionic
+arch: amd64
+
+script: rake
+
+deploy:
+  provider: releases
+  token: ${token}
+  file: mini
+  skip_cleanup: true
+  on:
+    tags: true
