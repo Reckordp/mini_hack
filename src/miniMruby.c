@@ -10,15 +10,6 @@ FILE *source;
 int kendali_serangan_dipanggil = 0;
 
 void error_and_exit(char *);
-void mrb_mruby_at_exit_gem_final(mrb_state*);
-
-void kendali_serangan(int nomor) {
-	if (kendali_serangan_dipanggil) raise(nomor);
-	kendali_serangan_dipanggil = 1;
-	if (kendali) mrb_mruby_at_exit_gem_final(kendali);
-	signal(nomor, SIG_DFL);
-	raise(nomor);
-}
 
 mrb_value load_dari_file(mrb_state *kendali, mrb_value self) {
 	char *nama_file;
@@ -51,12 +42,6 @@ void register_fungsi_ruby() {
 int main(int argc, char** argv) {
 	char buffer[256];
 	mrb_value argv_ruby, param;
-
-	signal(SIGTERM, kendali_serangan);
-	signal(SIGINT, kendali_serangan);
-	signal(SIGQUIT, kendali_serangan);
-	signal(SIGKILL, kendali_serangan);
-	signal(SIGHUP, kendali_serangan);
 
 	kendali = mrb_open();
 	argv_ruby = mrb_ary_new_capa(kendali, argc - 1);

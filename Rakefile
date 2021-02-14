@@ -34,7 +34,7 @@ PROGRAM_NAME = "mini-#{ENV['TRAVIS_OS_NAME']}".freeze
 
 file 'lib/libmruby.a' do 
 	sh 'curl -k' + 
-	' https://github.com/Reckordp/mruby/releases/download/V11/libmruby.a' + 
+	' https://github.com/Reckordp/mruby/releases/download/V12/libmruby.a' + 
 	' -o laman_mruby'
 	laman = Nokogiri::HTML.parse(File.read('laman_mruby'))
 	link = laman.css('a').attribute('href').value
